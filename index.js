@@ -5,6 +5,8 @@ const app = express();
 app.use(express.json());
 
 initializeDatabase();
+const cors = require("cors");
+app.use(cors());
 
 const Book = require("./models/books.models");
 
