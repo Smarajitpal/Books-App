@@ -92,7 +92,7 @@ async function readBookByAuthor(authorName) {
 app.get("/books/authors/:authorName", async (req, res) => {
   try {
     const bookDetails = await readBookByAuthor(req.params.authorName);
-    if (bookDetails) {
+    if (bookDetails.length >= 0) {
       res
         .status(200)
         .json({ message: "Found book successfully.", book: bookDetails });
