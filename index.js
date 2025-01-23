@@ -11,6 +11,7 @@ const corsOptions = {
   credentials: true,
   optionSuccessStatus: 200,
 };
+app.use(cors(corsOptions));
 
 const Book = require("./models/books.models");
 
