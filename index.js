@@ -6,7 +6,11 @@ app.use(express.json());
 
 initializeDatabase();
 const cors = require("cors");
-app.use(cors());
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
 
 const Book = require("./models/books.models");
 
@@ -25,7 +29,7 @@ app.post("/books", async (req, res) => {
     if (savedBook) {
       res
         .status(200)
-        .json({ message: "Hotel added successfully", book: savedBook });
+        .json({ message: "Books added successfully", book: savedBook });
     } else {
       res.status(404).json({ error: "Book not found." });
     }
